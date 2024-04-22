@@ -18,6 +18,7 @@ import { Form, Link } from 'react-router-dom'
 
 export async function loader({params}){
 	console.log(1, params);
+	console.log(2, params);
     return null;
 }
 
