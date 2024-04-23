@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@userfront/toolkit": "^1.0.8",
     "express": "^4.19.2",
+    "firebase": "^10.11.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
@@ -46,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://localhost:5000"
+  "proxy": "http://localhost:5000"
 }

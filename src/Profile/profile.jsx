@@ -1,35 +1,55 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
 	Navigate,
 	useLocation,
+	useLoaderData,
 } from 'react-router-dom'
 import Userfront, {
 	SignupForm,
 	LoginForm,
-	PasswordResetForm,LogoutButton
+	PasswordResetForm,
+	LogoutButton,
 } from '@userfront/toolkit/react'
 
 import { Form, Link } from 'react-router-dom'
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { collection, setDoc, getDoc, doc } from 'firebase/firestore'
 
-
-
-export async function loader({params}){
-	console.log(1, params);
-	console.log(2, params);
-    return null;
+const firebaseConfig = {
+	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
+	authDomain: 'projectsplatform-f3e9c.firebaseapp.com',
+	projectId: 'projectsplatform-f3e9c',
+	storageBucket: 'projectsplatform-f3e9c.appspot.com',
+	messagingSenderId: '732886721727',
+	appId: '1:732886721727:web:7933de9bfeb06bf4b9120a',
+	measurementId: 'G-S2C1NK93CT',
 }
 
-export async function action(params){
-	console.log(2, params);
-    return null;
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+
+export async function loader({ params }) {
+	const docRef = doc(db, 'users', Userfront.user.email)
+	const docSnap = await getDoc(docRef)
+	const data = docSnap.data()
+	if (docSnap.exists()) {
+		return data
+	} else {
+		return {}
+	}
 }
 
+export async function action(params) {
+	return null
+}
 
 export default function Profile() {
-	const data = { }
+	const data = useLoaderData()
+	data.email = Userfront.user.email;
 	return (
 		<RequireAuth>
 			<div>
@@ -49,10 +69,7 @@ export default function Profile() {
 				<Form action='edit'>
 					<button>EDIT</button>
 				</Form>
-				<Form method='post'>
-					<input type='text' name='simple' placeholder='something' />
-					<button type='submit'>Update</button>
-				</Form>
+			
 				<LogoutButton
 					theme={{
 						colors: {
@@ -86,11 +103,10 @@ function RequireAuth({ children }) {
 	return children
 }
 
-
 async function callBackend() {
 	const response = await fetch('/express_backend')
-    const data = await response.json()
-    if (response.status!== 200){
+	const data = await response.json()
+	if (response.status !== 200) {
 		throw Error(data.message)
 	}
 	return data

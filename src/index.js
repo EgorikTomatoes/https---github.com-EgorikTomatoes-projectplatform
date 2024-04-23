@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
@@ -7,7 +7,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login_pages from './login/login_page'
 import Profile from './Profile/profile'
 import Signup_pages from './login/sign_up_page'
-import {  loader as ProfileLoader, action as ProfileAction } from './Profile/profile'
+import {
+	loader as ProfileLoader,
+	action as ProfileAction,
+} from './Profile/profile'
+import Profile_edit from './Profile/profile_edit'
+import { action as EditAction, loader as EditLoader} from './Profile/profile_edit'
+
 
 const router = createBrowserRouter([
 	{
@@ -19,7 +25,7 @@ const router = createBrowserRouter([
 		element: <Login_pages />,
 	},
 	{
-		path: '/profile/:id',
+		path: '/profile',
 		element: <Profile />,
 		loader: ProfileLoader,
 		action: ProfileAction,
@@ -28,13 +34,19 @@ const router = createBrowserRouter([
 		path: '/signup',
 		element: <Signup_pages />,
 	},
+	{
+		path: '/profile/edit',
+		element: <Profile_edit />,
+		action: EditAction,
+		loader: EditLoader,
+	}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-	<React.StrictMode>
-		<RouterProvider router={router} />
-	</React.StrictMode>
+		<React.StrictMode>
+			<RouterProvider router={router} />
+		</React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
