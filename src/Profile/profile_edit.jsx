@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { collection, setDoc, getDoc, doc } from 'firebase/firestore'
-import { Form, redirect, useLoaderData } from 'react-router-dom'
+import { Form, useNavigate, redirect, useLoaderData } from 'react-router-dom'
 import Userfront from '@userfront/toolkit'
 
 const firebaseConfig = {
@@ -40,6 +40,7 @@ export async function loader({ params }) {
 
 export default function Profile_edit() {
 	const data = useLoaderData()
+	const navigate = useNavigate()
     data.email = Userfront.user.email;
 	return (
 		<Form method='post'>
@@ -53,9 +54,7 @@ export default function Profile_edit() {
 				Second name{' '}
 				<input name='surname' type='text' defaultValue={data.surname} />
 			</div>
-			<div>
-				Email:{data.email}
-			</div>
+			<div>Email:{data.email}</div>
 			<div>
 				Age: <input name='age' type='text' defaultValue={data.age} />
 			</div>
@@ -80,6 +79,14 @@ export default function Profile_edit() {
 				Phone: <input name='phone' type='text' defaultValue={data.phone} />
 			</div>
 			<button type='submit'>EDIT</button>
+			<button
+				type='button'
+				onClick={() => {
+					navigate(-1)
+				}}
+			>
+				Cancel
+			</button>
 		</Form>
 	)
 }

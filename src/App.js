@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
 	Form,
@@ -21,6 +20,9 @@ function App() {
         </Form>
         <Form action='/profile'>
           <button>Профиль</button>
+        </Form>
+        <Form action='/ideas'>
+          <button>Базисы проектов</button>
         </Form>
       </div>
     </div>

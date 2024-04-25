@@ -2,7 +2,6 @@ import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login_pages from './login/login_page'
 import Profile from './Profile/profile'
@@ -12,8 +11,17 @@ import {
 	action as ProfileAction,
 } from './Profile/profile'
 import Profile_edit from './Profile/profile_edit'
-import { action as EditAction, loader as EditLoader} from './Profile/profile_edit'
+import {
+	action as EditAction,
+	loader as EditLoader,
+} from './Profile/profile_edit'
 
+import { loader as IdeasLoader } from './ideas/ideas'
+
+import Ideas from './ideas/ideas'
+
+import Create_idea from './ideas/create_idea'
+import { action as IdeaAction } from './ideas/create_idea'
 
 const router = createBrowserRouter([
 	{
@@ -39,17 +47,33 @@ const router = createBrowserRouter([
 		element: <Profile_edit />,
 		action: EditAction,
 		loader: EditLoader,
+	},
+	{
+		path: '/ideas',
+		element: <Ideas />,
+		loader: IdeasLoader,
+	},
+	{
+		path: '/profile/:User_id',
+		element: <Profile />,
+		loader: ProfileLoader,
+        action: ProfileAction,
+	},
+	{
+		path: '/create/idea',
+		element: <Create_idea />,
+		loader: EditLoader,
+		action: IdeaAction,
 	}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
