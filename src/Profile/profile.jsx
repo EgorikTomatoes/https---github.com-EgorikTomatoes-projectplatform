@@ -44,16 +44,22 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 export async function loader({ params }) {
-	let docRef = doc(db, 'users', Userfront.user.email)
 	let View_only = false
-	let name = Userfront.user.email
+	
+	if (!Userfront.tokens.accessToken && params?.User_id === undefined) {
+		return { View_only }
+	}
+
+	let docRef;
+	let name;
 
 	if (params?.User_id !== undefined) {
 		docRef = doc(db, 'users', params.User_id)
 		View_only = true
 		name = params.User_id
-	} else if (!Userfront.tokens.accessToken) {
-		return { View_only }
+	}else{
+		docRef = doc(db, 'users', Userfront?.user?.email)
+		name = Userfront?.user?.email
 	}
 
 	const docSnap = await getDoc(docRef)
@@ -85,8 +91,8 @@ export async function action(params) {
 
 export default function Profile() {
 	const { data, View_only, projects } = useLoaderData()
-	if (!View_only) {
-		data.email = Userfront.user.email
+	if (!View_only && Userfront.tokens.accessToken) {
+		data.email = Userfront?.user?.email
 	}
 	return (
 		<RequireAuth>
@@ -136,11 +142,7 @@ export default function Profile() {
 				)}
 			</div>
 			<h1>Проекты и идеи</h1>
-			{!View_only ? <Link
-				to ='/create/idea'
-			>
-				Создать идею
-			</Link>:<></>}
+			{!View_only ? <Link to='/create/idea'>Создать идею</Link> : <></>}
 			{projects !== undefined ? (
 				projects.map(doc => {
 					return <Idea_card obj={doc} />

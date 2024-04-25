@@ -44,6 +44,7 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 export async function action({ request, res }) {
+
 	const users_db = collection(db, 'ideas')
 	const formData = await request.formData()
 	const updates = Object.fromEntries(formData)
@@ -54,10 +55,14 @@ export async function action({ request, res }) {
 }
 
 export default function Create_idea() {
-	const data = useLoaderData()
-	data.email = Userfront.user.email
-	const [title, changeTitle] = useState(false)
-	const [text, changeText] = useState(false)
+    let location = useLocation()
+    const data = useLoaderData()
+    const [title, changeTitle] = useState(false)
+    const [text, changeText] = useState(false)
+    if (!Userfront.tokens.accessToken){
+        return <Navigate to='/login' state={{ from: location }} replace />
+    }
+    data.email = Userfront.user.email
 	return (
 		<div>
 			<Form method='post'>

@@ -28,6 +28,9 @@ export async function action({ request, res }) {
 }
 
 export async function loader({ params }) {
+	if (!Userfront.tokens.accessToken){
+		return {}
+	}
 	const docRef = doc(db, 'users', Userfront.user.email)
 	const docSnap = await getDoc(docRef)
 	const data = docSnap.data()
