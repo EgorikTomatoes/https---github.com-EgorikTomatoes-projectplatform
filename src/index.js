@@ -23,48 +23,57 @@ import Ideas from './ideas/ideas'
 import Create_idea from './ideas/create_idea'
 import { action as IdeaAction } from './ideas/create_idea'
 
+import Main_Bar from './components/bar'
+
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
+		element: <Main_Bar />,
+		children: [
+			{ index: true, element: <App /> },
+			{
+				path: '/home',
+				element: <App />,
+			},
+			{
+				path: '/login',
+				element: <Login_pages />,
+			},
+			{
+				path: '/profile',
+				element: <Profile />,
+				loader: ProfileLoader,
+				action: ProfileAction,
+			},
+			{
+				path: '/signup',
+				element: <Signup_pages />,
+			},
+			{
+				path: '/profile/edit',
+				element: <Profile_edit />,
+				action: EditAction,
+				loader: EditLoader,
+			},
+			{
+				path: '/ideas',
+				element: <Ideas />,
+				loader: IdeasLoader,
+			},
+			{
+				path: '/profile/:User_id',
+				element: <Profile />,
+				loader: ProfileLoader,
+				action: ProfileAction,
+			},
+			{
+				path: '/create/idea',
+				element: <Create_idea />,
+				loader: EditLoader,
+				action: IdeaAction,
+			},
+		],
 	},
-	{
-		path: '/login',
-		element: <Login_pages />,
-	},
-	{
-		path: '/profile',
-		element: <Profile />,
-		loader: ProfileLoader,
-		action: ProfileAction,
-	},
-	{
-		path: '/signup',
-		element: <Signup_pages />,
-	},
-	{
-		path: '/profile/edit',
-		element: <Profile_edit />,
-		action: EditAction,
-		loader: EditLoader,
-	},
-	{
-		path: '/ideas',
-		element: <Ideas />,
-		loader: IdeasLoader,
-	},
-	{
-		path: '/profile/:User_id',
-		element: <Profile />,
-		loader: ProfileLoader,
-        action: ProfileAction,
-	},
-	{
-		path: '/create/idea',
-		element: <Create_idea />,
-		loader: EditLoader,
-		action: IdeaAction,
-	}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

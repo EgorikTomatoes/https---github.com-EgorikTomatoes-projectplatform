@@ -14,17 +14,6 @@ function App() {
         Создавайте свое портфолио!<br/>
         <b>Быстрый и удобный</b> способ работодателю узнать все проекты соискателя!!!
       </div>
-      <div>
-        <Form action='login'>
-          <button>Войти</button>
-        </Form>
-        <Form action='/profile'>
-          <button>Профиль</button>
-        </Form>
-        <Form action='/ideas'>
-          <button>Базисы проектов</button>
-        </Form>
-      </div>
     </div>
   );
 }
