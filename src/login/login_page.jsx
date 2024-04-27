@@ -1,11 +1,11 @@
 import React from 'react'
+import './login_page.css';
 import Userfront, {
 	SignupForm,
 	LoginForm,
 	PasswordResetForm,
     LogoutButton
 } from '@userfront/toolkit/react'
-
 import {Form, Link} from 'react-router-dom'
 
 Userfront.init('wn95m8vn')
@@ -13,7 +13,7 @@ Userfront.init('wn95m8vn')
 export default function Login_pages() {
     console.log(Userfront.user)
 	return (
-		<>
+		<div class='login'>
 			<LoginForm
 				theme={{
 					colors: {
@@ -34,6 +34,6 @@ export default function Login_pages() {
 				}}
 			/>
             <Link to={'/signup'}>Sign Up</Link>
-		</>
+		</div>
 	)
 }

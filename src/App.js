@@ -6,7 +6,7 @@ import {
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <div>
         Привет!
         Это сайт о проектах!<br/>
