@@ -19,6 +19,7 @@ import './bar_style.css'
 
 import { Form, Link } from 'react-router-dom'
 
+
 export default function Main_Bar() {
 	return (
 		<>

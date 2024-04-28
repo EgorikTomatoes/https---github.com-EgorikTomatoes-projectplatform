@@ -4,14 +4,14 @@ import Userfront, {
 	SignupForm,
 	LoginForm,
 	PasswordResetForm,
-    LogoutButton
+	LogoutButton
 } from '@userfront/toolkit/react'
-import {Form, Link} from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 
 Userfront.init('wn95m8vn')
 
 export default function Login_pages() {
-    console.log(Userfront.user)
+	console.log(Userfront.user)
 	return (
 		<div class='login'>
 			<LoginForm
@@ -33,7 +33,7 @@ export default function Login_pages() {
 					},
 				}}
 			/>
-            <Link to={'/signup'}>Sign Up</Link>
+			<div class='align'>	<Link to={'/signup'}>Sign Up</Link> </div>
 		</div>
 	)
 }

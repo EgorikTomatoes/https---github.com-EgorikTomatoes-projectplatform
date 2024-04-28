@@ -6,3 +6,13 @@
 	background-color: antiquewhite;
 }
 
+.sx {
+	display: flex;
+	align-items: center; 
+	text-align: center;
+}
+
+.align{
+	align-items: center;
+	text-align: center;
+}
