@@ -24,6 +24,9 @@ import Create_idea from './ideas/create_idea'
 import { action as IdeaAction } from './ideas/create_idea'
 
 import Main_Bar from './components/bar'
+import Moderation from './ideas/moderate_ideas'
+import { loader as ModerationLoader} from './ideas/moderate_ideas'
+import { action as ModerationAction } from './ideas/moderate_ideas'
 
 const router = createBrowserRouter([
 	{
@@ -71,6 +74,12 @@ const router = createBrowserRouter([
 				element: <Create_idea />,
 				loader: EditLoader,
 				action: IdeaAction,
+			},
+			{
+				path: '/moderation',
+				element: <Moderation />,
+				loader: ModerationLoader, 
+				action: ModerationAction,
 			},
 		],
 	},

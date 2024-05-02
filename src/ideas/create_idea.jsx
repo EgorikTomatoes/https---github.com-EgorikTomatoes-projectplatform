@@ -50,6 +50,7 @@ export async function action({ request, res }) {
 	const updates = Object.fromEntries(formData)
 	updates.author = Userfront.user.email
 	updates.avatar = updates.avatar
+	updates.status = 'on moderation'
 	await setDoc(doc(users_db, updates.title), updates)
 	return redirect('/profile')
 }

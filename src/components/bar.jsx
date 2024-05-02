@@ -19,7 +19,6 @@ import './bar_style.css'
 
 import { Form, Link } from 'react-router-dom'
 
-
 export default function Main_Bar() {
 	return (
 		<>
@@ -27,6 +26,11 @@ export default function Main_Bar() {
 				<Link to={'/home'}>Главная</Link>
 				<Link to={'/ideas'}>Идеи</Link>
 				<Link to={'/profile'}>Профиль</Link>
+				{Userfront?.user?.data?.isAdmin === true ? (
+					<Link to={'/moderation'}>Модерация</Link>
+				) : (
+					<></>
+				)}
 			</div>
 			<Outlet />
 		</>

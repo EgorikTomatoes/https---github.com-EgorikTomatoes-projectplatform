@@ -45,26 +45,37 @@ const db = getFirestore(app)
 
 export async function loader({ params }) {
 	let View_only = false
-	
+
 	if (!Userfront.tokens.accessToken && params?.User_id === undefined) {
 		return { View_only }
 	}
 
-	let docRef;
-	let name;
+	let docRef
+	let name
 
 	if (params?.User_id !== undefined) {
 		docRef = doc(db, 'users', params.User_id)
 		View_only = true
 		name = params.User_id
-	}else{
+	} else {
 		docRef = doc(db, 'users', Userfront?.user?.email)
 		name = Userfront?.user?.email
 	}
 
 	const docSnap = await getDoc(docRef)
-
-	const q = query(collection(db, 'ideas'), where('author', '==', name))
+	let q;
+	if (View_only) {
+		q = query(
+			collection(db, 'ideas'),
+			where('author', '==', name),
+			where('status', '==', 'accepted')
+		)
+	} else {
+		q = query(
+			collection(db, 'ideas'),
+			where('author', '==', name)
+		)
+	}
 	const querySnapshot = await getDocs(q)
 	const projects = []
 	querySnapshot.forEach(doc => {
@@ -145,7 +156,7 @@ export default function Profile() {
 			{!View_only ? <Link to='/create/idea'>Создать идею</Link> : <></>}
 			{projects !== undefined ? (
 				projects.map(doc => {
-					return <Idea_card obj={doc} />
+					return <Idea_card obj={doc} isProfile={!View_only}/>
 				})
 			) : (
 				<div>Нет проектов</div>

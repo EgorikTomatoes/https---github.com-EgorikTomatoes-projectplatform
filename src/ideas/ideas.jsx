@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-import { collection, setDoc, getDoc, doc, getDocs } from 'firebase/firestore'
+import { collection, setDoc, getDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import {
 	Form,
 	useNavigate,
@@ -31,7 +31,12 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 export async function loader({ params }) {
-	const docSnap = await getDocs(collection(db, 'ideas'))
+	const docSnap = await getDocs(
+		(query(
+			collection(db, 'ideas'),
+			where('status', '==', 'accepted')
+		))
+	)
 	const data = []
 	docSnap.forEach(doc => {
 		const obj = {}
@@ -47,7 +52,7 @@ export default function Ideas() {
 	return (
 		<div>
 			{data.map(obj => {
-				return <Idea_card obj={obj} />
+				return <Idea_card obj={obj} isProfile={false} />
 			})}
 		</div>
 	)
