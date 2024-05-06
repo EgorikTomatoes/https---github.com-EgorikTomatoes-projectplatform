@@ -26,6 +26,7 @@ export default function Idea_card({ obj, isProfile }) {
 				<div style={{ display: 'flex', direction: 'row' }}>
 					<Link to={`/profile/${obj.data.author}`}>{obj.data.author}</Link>
 				</div>
+				<div>Тэги: {obj?.data?.subjects?.map((doc) => {return <>{doc}; </>})}</div>
 			</CardActionArea>
 		</Card>
 	)
