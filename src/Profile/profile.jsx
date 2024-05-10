@@ -101,8 +101,11 @@ export async function action(params) {
 }
 
 export default function Profile() {
-	const { data, View_only, projects } = useLoaderData()
-	if (!View_only && Userfront.tokens.accessToken) {
+	let { data, View_only, projects } = useLoaderData()
+	if (data === undefined){
+		data = {};	
+	}
+	if (!View_only) {
 		data.email = Userfront?.user?.email
 	}
 	return (
@@ -167,7 +170,7 @@ export default function Profile() {
 
 function RequireAuth({ children }) {
 	let location = useLocation()
-	if (!Userfront.tokens.accessToken) {
+	if (!Userfront?.tokens?.accessToken) {
 		return <Navigate to='/login' state={{ from: location }} replace />
 	}
 	return children

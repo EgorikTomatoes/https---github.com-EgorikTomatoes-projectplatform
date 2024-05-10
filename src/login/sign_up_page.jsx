@@ -11,7 +11,6 @@ import { Form, Link } from 'react-router-dom'
 Userfront.init('wn95m8vn')
 
 export default function Signup_pages() {
-	console.log(Userfront.user)
 	return (
 		<div class='login'>
 			<SignupForm
