@@ -21,12 +21,12 @@ export default function Idea_card({ obj, isProfile }) {
 					<Avatar alt='Remy Sharp' src={obj.data.avatar} />
 				</CardMedia>
 				{isProfile ? <div>Статус {obj.data.status}
-				<br/>
-				{obj.data.status === 'declined' ? <span>Причина: {obj.data.reason}</span> : <></>}</div>: <></>}
+					<br />
+					{obj.data.status === 'declined' ? <span>Причина: {obj.data.reason}</span> : <></>}</div> : <></>}
 				<div style={{ display: 'flex', direction: 'row' }}>
 					<Link to={`/profile/${obj.data.author}`}>{obj.data.author}</Link>
 				</div>
-				<div>Тэги: {obj?.data?.subjects?.map((doc) => {return <>{doc}; </>})}</div>
+				<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
 			</CardActionArea>
 		</Card>
 	)
