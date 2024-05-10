@@ -23,9 +23,9 @@ export default function Main_Bar() {
 	return (
 		<>
 			<div className='bar'>
-				<Link to={'/home'}>Главная</Link>
-				<Link to={'/ideas'}>Идеи</Link>
-				<Link to={'/profile'}>Профиль</Link>
+				<Link to={'/home'} className='home'>Главная</Link>
+				<Link to={'/ideas'} className='ideas'>Идеи</Link>
+				<Link to={'/profile'} className='profile'>Профиль</Link>
 				{Userfront?.user?.data?.isAdmin === true ? (
 					<Link to={'/moderation'}>Модерация</Link>
 				) : (

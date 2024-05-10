@@ -6,13 +6,25 @@
 	background-color: antiquewhite;
 }
 
+.home:hover {
+	color: crimson;
+}
+
+.ideas:hover {
+	color: lightgreen;
+}
+
+.profile:hover {
+	color: cyan;
+}
+
 .sx {
 	display: flex;
-	align-items: center; 
+	align-items: center;
 	text-align: center;
 }
 
-.align{
+.align {
 	align-items: center;
 	text-align: center;
 }

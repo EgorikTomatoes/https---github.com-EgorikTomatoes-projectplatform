@@ -29,6 +29,7 @@ import {
 	where,
 	getDocs,
 } from 'firebase/firestore'
+import './profile_edit.css';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
@@ -102,31 +103,31 @@ export async function action(params) {
 
 export default function Profile() {
 	let { data, View_only, projects } = useLoaderData()
-	if (data === undefined){
-		data = {};	
+	if (data === undefined) {
+		data = {};
 	}
 	if (!View_only) {
 		data.email = Userfront?.user?.email
 	}
 	return (
 		<RequireAuth>
-			<div>
+			<div className='positions'>
 				<div>
 					<img key={data?.image} src={data?.image} alt='User photo' />
 				</div>
-				<div>First name: {data?.name}</div>
-				<div>Second name: {data?.surname}</div>
-				<div>Email: {data?.email}</div>
-				<div>Age: {data?.age}</div>
-				<div>Country: {data?.country}</div>
-				<div>City: {data?.city}</div>
-				<div>Street: {data?.street}</div>
-				<div>House: {data?.house}</div>
-				<div>Apartment: {data?.apartment}</div>
-				<div>Phone: {data?.phone}</div>
+				First name: {data?.name}<br />
+				Second name: {data?.surname}<br />
+				Email: {data?.email}<br />
+				Age: {data?.age}<br />
+				Country: {data?.country}<br />
+				City: {data?.city}<br />
+				Street: {data?.street}<br />
+				House: {data?.house}<br />
+				Apartment: {data?.apartment}<br />
+				Phone: {data?.phone}<br />
 				{!View_only ? (
 					<Form action='edit'>
-						<button>EDIT</button>
+						<button className='edit'>EDIT</button>
 					</Form>
 				) : (
 					<></>
@@ -156,13 +157,15 @@ export default function Profile() {
 				)}
 			</div>
 			<h1>Проекты и идеи</h1>
-			{!View_only ? <Link to='/create/idea'>Создать идею</Link> : <></>}
+			<div className='createidea'>
+				{!View_only ? <Link className='createidea' to='/create/idea'>Создать идею</Link> : <></>}
+			</div>
 			{projects !== undefined ? (
 				projects.map(doc => {
-					return <Idea_card obj={doc} isProfile={!View_only}/>
+					return <Idea_card obj={doc} isProfile={!View_only} />
 				})
 			) : (
-				<div>Нет проектов</div>
+				<div className='positions'>Нет проектов</div>
 			)}
 		</RequireAuth>
 	)

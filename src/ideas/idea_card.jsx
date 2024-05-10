@@ -5,13 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom'
 import Avatar from '@mui/material/Avatar'
 import { CardActionArea } from '@mui/material';
+import './idea_card.css'
 
 export default function Idea_card({ obj, isProfile }) {
 	return (
 		<Card style={{ border: '1px solid black' }}>
 			<CardActionArea>
 				<CardContent>
-					<h1>{obj.id}</h1>
+					<h1 className='title'>{obj.id}</h1>
 					<br />
 					{obj.data.text}
 					<br />

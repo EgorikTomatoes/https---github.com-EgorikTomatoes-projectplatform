@@ -1,0 +1,19 @@
+.positions {
+    text-align: center;
+}
+
+.edit {
+    background-color: lightgreen;
+}
+
+.cancel {
+    background-color: antiquewhite;
+}
+
+.createidea {
+    text-align: center;
+}
+
+.createidea:hover {
+    color: green;
+}
