@@ -15,6 +15,7 @@ import Userfront from '@userfront/toolkit'
 import Avatar from '@mui/material/Avatar'
 import { Grid } from '@mui/material'
 import Idea_card from './idea_card'
+import './idea_card.css'
 
 
 const firebaseConfig = {
@@ -50,9 +51,11 @@ export async function loader({ params }) {
 export default function Ideas() {
 	const data = useLoaderData()
 	return (
-		<div>
+		<div class='grid-container'>
 			{data.map(obj => {
-				return <Idea_card obj={obj} isProfile={false} />
+				return (
+					<Idea_card obj={obj} isProfile={false} />
+				)
 			})}
 		</div>
 	)

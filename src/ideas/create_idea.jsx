@@ -31,6 +31,7 @@ import {
 } from 'firebase/firestore'
 
 import { Subjects } from './subjects'
+import './create_idea.css'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
@@ -51,11 +52,11 @@ export async function action({ request, res }) {
 	const updates = Object.fromEntries(formData)
 	console.log(111, updates)
 	updates.subjects = new Array;
-	for (let sbj of Subjects){
-		if (updates[sbj] !== undefined){
-            updates.subjects.push(sbj)
+	for (let sbj of Subjects) {
+		if (updates[sbj] !== undefined) {
+			updates.subjects.push(sbj)
 			delete updates[sbj]
-        }
+		}
 	}
 	console.log(updates)
 	updates.author = Userfront.user.email
@@ -108,16 +109,16 @@ export default function Create_idea() {
 					</div>
 				</div>
 				<input type='hidden' name='avatar' value={data.image} />
-				<Link to='/profile'>Назад</Link>
-				{title && text ? <button type='submit'>Опубликовать</button> : <></>}
-			{Subjects.map(doc => {
-				return (
-					<div>
-						<input type='checkbox' name={doc} id={doc} value={true} />
-						<label for={doc}>{doc}</label>
-					</div>
-				)
-			})}
+				<a class='back'><Link to='/profile'>Назад</Link></a>
+				{title && text ? <button type='submit' class='edit'>Опубликовать</button> : <></>}
+				{Subjects.map(doc => {
+					return (
+						<div>
+							<input type='checkbox' name={doc} id={doc} value={true} />
+							<label for={doc}>{doc}</label>
+						</div>
+					)
+				})}
 			</Form>
 		</div>
 	)

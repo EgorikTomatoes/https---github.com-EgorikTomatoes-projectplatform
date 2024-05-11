@@ -23,11 +23,11 @@ export default function Main_Bar() {
 	return (
 		<>
 			<div className='bar'>
-				<Link to={'/home'} className='home'>Главная</Link>
-				<Link to={'/ideas'} className='ideas'>Идеи</Link>
-				<Link to={'/profile'} className='profile'>Профиль</Link>
+				<a class='cl'><Link to={'/home'} className='home'>Главная</Link></a>
+				<a class='cl'><Link to={'/ideas'} className='ideas'>Идеи</Link></a>
+				<a class='cl'><Link to={'/profile'} className='profile'>Профиль</Link></a>
 				{Userfront?.user?.data?.isAdmin === true ? (
-					<Link to={'/moderation'}>Модерация</Link>
+					<a class='cl'><Link to={'/moderation'}>Модерация</Link></a>
 				) : (
 					<></>
 				)}

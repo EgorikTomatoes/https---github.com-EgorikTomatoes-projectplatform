@@ -158,7 +158,7 @@ export default function Profile() {
 			</div>
 			<h1>Проекты и идеи</h1>
 			<div className='createidea'>
-				{!View_only ? <Link className='createidea' to='/create/idea'>Создать идею</Link> : <></>}
+				{!View_only ? <a class='create_idea'><Link className='createidea' to='/create/idea'>Создать идею</Link></a> : <></>}
 			</div>
 			{projects !== undefined ? (
 				projects.map(doc => {
