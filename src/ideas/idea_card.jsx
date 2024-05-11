@@ -10,8 +10,8 @@ import './idea_card.css'
 export default function Idea_card({ obj, isProfile }) {
 	return (
 		<div className='grid-item'>
-			<Card style={{ border: '1px solid black' }}>
-				<CardActionArea>
+			<CardActionArea>
+				<Card style={{ border: '1px solid black', height: '350px' }}>
 					<CardContent>
 						<h1 className='title'>{obj.id}</h1>
 						<br />
@@ -29,8 +29,8 @@ export default function Idea_card({ obj, isProfile }) {
 						<Link className='email' to={`/profile/${obj.data.author}`}>{obj.data.author}</Link>
 					</div>
 					<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
-				</CardActionArea>
-			</Card>
+				</Card>
+			</CardActionArea>
 		</div>
 	)
 }
