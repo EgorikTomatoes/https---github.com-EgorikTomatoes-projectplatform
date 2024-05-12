@@ -1,7 +1,7 @@
 import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './App'
+import App from './Profile/home_page'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login_pages from './login/login_page'
 import Profile from './Profile/profile'

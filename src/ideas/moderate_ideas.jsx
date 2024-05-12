@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
+import './moderate_ideas.css'
+import './idea_card.css'
 import {
 	BrowserRouter as Router,
 	Routes,

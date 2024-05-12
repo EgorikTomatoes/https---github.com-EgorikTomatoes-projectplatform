@@ -27,7 +27,7 @@ export default function Main_Bar() {
 				<a class='cl'><Link to={'/ideas'} className='ideas'>Идеи</Link></a>
 				<a class='cl'><Link to={'/profile'} className='profile'>Профиль</Link></a>
 				{Userfront?.user?.data?.isAdmin === true ? (
-					<a class='cl'><Link to={'/moderation'}>Модерация</Link></a>
+					<a class='cl'><Link to={'/moderation'} className='moderation'>Модерация</Link></a>
 				) : (
 					<></>
 				)}

@@ -2,13 +2,15 @@
 	display: flex;
 	direction: row;
 	justify-content: space-around;
-	background-color: antiquewhite;
+	background-color: #2b4b3a;
+	width: 100vw;
+	height: 7vh;
 }
 
 .cl a {
 	border-radius: 10px;
 	color: #CEA640;
-	background: #FFF79A;
+	background: #fff79a;
 	border-bottom: 3px solid #E1B442;
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
@@ -23,11 +25,15 @@
 }
 
 .ideas:hover {
-	color: lightgreen;
+	color: crimson;
 }
 
 .profile:hover {
-	color: cyan;
+	color: crimson;
+}
+
+.moderation:hover{
+	color: crimson;
 }
 
 a {

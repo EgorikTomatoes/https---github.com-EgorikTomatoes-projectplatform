@@ -55,7 +55,7 @@ export async function action({ request, res }) {
 
 export default function Update_card({ obj }) {
 	return (
-		<div style={{ border: '3px solid black' }}>
+		<div style={{ border: '3px solid black', background:'white'}}>
 			<Form method='post'>
 				<input type='radio' id='accepted' name='status' value='accepted'/>
 				<label for='accepted'>Принять проект</label>
