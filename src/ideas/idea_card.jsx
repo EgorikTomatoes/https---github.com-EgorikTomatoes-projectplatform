@@ -9,26 +9,25 @@ import './idea_card.css'
 
 export default function Idea_card({ obj, isProfile }) {
 	return (
-		<div className='grid-item'>
+		<div class='grid-item'>
 			<CardActionArea>
 				<Card style={{ border: '1px solid black', height: '350px' }}>
 					<CardContent>
-						<h1 className='title'>{obj.id}</h1>
-						<br />
-						{obj.data.text}
-						<br />
+						<CardMedia><Avatar alt='Remy Sharp' src={obj.data.avatar} /></CardMedia>
+						<h1 className='title'>{obj.id.length < 40 ? obj.id : obj.id.slice(0, 40) + "..."}</h1>
+						{obj.data.text.length < 300 ? obj.data.text : obj.data.text.slice(0, 300) + "..."}
 						<br />
 					</CardContent>
-					<CardMedia>
-						<Avatar alt='Remy Sharp' src={obj.data.avatar} />
-					</CardMedia>
 					{isProfile ? <div>Статус {obj.data.status}
 						<br />
 						{obj.data.status === 'declined' ? <span>Причина: {obj.data.reason}</span> : <></>}</div> : <></>}
+
+					<CardContent>
+						<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
+					</CardContent>
 					<div style={{ display: 'flex', direction: 'row' }}>
 						<Link className='email' to={`/profile/${obj.data.author}`}>{obj.data.author}</Link>
 					</div>
-					<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
 				</Card>
 			</CardActionArea>
 		</div>
