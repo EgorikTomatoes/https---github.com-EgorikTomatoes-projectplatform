@@ -1,14 +1,14 @@
 import React from 'react'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Link } from 'react-router-dom'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Avatar from '@mui/material/Avatar'
-import { CardActionArea } from '@mui/material';
+import { CardActionArea } from '@mui/material'
 import './idea_card.css'
 
 import { initializeApp } from 'firebase/app'
-import { getFirestore, doc, deleteDoc} from 'firebase/firestore'
+import { getFirestore, doc, deleteDoc } from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -24,37 +24,72 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
-async function delete_card(data){
+async function delete_card(data) {
 	if (data?.data?.title !== undefined)
-	await deleteDoc(doc(db, 'ideas', data?.data?.title))
+		await deleteDoc(doc(db, 'ideas', data?.data?.title))
 	window.location.reload()
 }
 
-
 export default function Idea_card({ obj, isProfile }) {
+	const navigate = useNavigate()
+	console.log(obj, isProfile)
 	return (
 		<div className='grid-item'>
-			<CardActionArea>
-				<Card style={{ border: '2px solid black', height: '600px'}} className='grid-item'>
+			<CardActionArea onClick={()=>{navigate(`/idea/${obj?.data?.title}`)}}>
+				<Card
+					style={{ border: '2px solid black', height: '600px' }}
+					className='grid-item'
+				>
 					<CardContent>
-						<h1 className='title'>{obj?.id}</h1>
-						<br />
-						{obj?.data?.text}
-						<br />
+						<CardMedia>
+							<Avatar alt='Remy Sharp' src={obj.data.avatar} />
+						</CardMedia>
+						<h1 className='title'>
+							{obj?.data?.title?.length < 40 ? obj?.data?.title : obj?.data?.title?.slice(0, 40) + '...'}
+						</h1>
+						{obj?.data?.text?.length < 300
+							? obj?.data?.text
+							: obj?.data?.text.slice(0, 300) + '...'}
 						<br />
 					</CardContent>
-					<CardMedia>
-						<Avatar alt='Remy Sharp' src={obj?.data?.avatar} />
-					</CardMedia>
-					{isProfile ? <div>Статус {obj?.data?.status}
-						<br />
-						{obj?.data?.status === 'declined' ? <span>Причина: {obj?.data?.reason}</span> : <></>}</div> : <></>}
+					{isProfile ? (
+						<div>
+							Статус {obj?.data?.status}
+							<br />
+							{obj?.data?.status === 'declined' ? (
+								<span>Причина: {obj?.data?.reason}</span>
+							) : (
+								<></>
+							)}
+						</div>
+					) : (
+						<></>
+					)}
+					<CardContent>
+						<div>
+							Тэги:{' '}
+							{obj?.data?.subjects?.map(doc => {
+								return <>{doc}; </>
+							})}
+						</div>
+					</CardContent>
 					<div style={{ display: 'flex', direction: 'row' }}>
-						<Link className='email' to={`/profile/${obj?.data?.author}`}>{obj?.data?.author}</Link>
+						<Link className='email' to={`/profile/${obj.data.author}`}>
+							{obj.data.author}
+						</Link>
 					</div>
-					<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
-					<br />
-					{isProfile? <button class='del' onClick={()=>{delete_card(obj)}}>УДАЛИТЬ</button>:<></>}
+					{isProfile ? (
+						<button
+							class='del'
+							onClick={() => {
+								delete_card(obj)
+							}}
+						>
+							УДАЛИТЬ
+						</button>
+					) : (
+						<></>
+					)}
 				</Card>
 			</CardActionArea>
 		</div>

@@ -13,8 +13,8 @@
     gap: 10px;
 }
 
-.grid-item {
-    background-color: #f0f0f0;
+.grid-item div{
+    background-color: #50b3de;
     border-radius: 10px !important;
 }
 
