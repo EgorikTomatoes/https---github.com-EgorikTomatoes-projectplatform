@@ -50,7 +50,8 @@ export default function Profile_edit() {
 		<Form method='post'>
 			<div className='positions'>
 				<div>
-					Image url: <input name='image' type='text' defaultValue={data.image} />
+					Image url:{' '}
+					<input name='image' type='text' defaultValue={data.image} />
 					<br />
 					First name: <input name='name' type='text' defaultValue={data.name} />
 					<br />
@@ -73,12 +74,20 @@ export default function Profile_edit() {
 					Apartment:{' '}
 					<input name='apartment' type='text' defaultValue={data.apartment} />
 					<br />
+					<br />
+					School: <input name='school' type='text' defaultValue={data.school} />
+					<br />
+					Work Place:{' '}
+					<input name='workplace' type='text' defaultValue={data.workplace} />
 					Phone: <input name='phone' type='text' defaultValue={data.phone} />
 				</div>
 				<div>
-					<button type='submit' className='edit'>CONFIRM</button>
+					<button type='submit' className='edit'>
+						CONFIRM
+					</button>
 				</div>
-				<button className='cancel'
+				<button
+					className='cancel'
 					type='button'
 					onClick={() => {
 						navigate(-1)

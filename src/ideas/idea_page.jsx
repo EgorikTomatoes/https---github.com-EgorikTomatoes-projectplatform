@@ -58,13 +58,13 @@ export default function Idea_page() {
 	let { data } = useLoaderData()
 	return (
 		<div className='box'>
-			<h1 className='title_page'>{data.title}</h1>
+			<h1 className='title_page'>{data?.title}</h1>
 			<br />
-			<div className='text_page'>{data.text}</div>
+			<div className='text_page'>{data?.text}</div>
 			<br />
-			<Avatar src={data.avatar} />
-			<Link className='email' to={`/profile/${data.author}`}>
-				{data.author}
+			<Avatar src={data?.avatar} />
+			<Link className='email' to={`/profile/${data?.author}`}>
+				{data?.author}
 			</Link>
 		</div>
 	)

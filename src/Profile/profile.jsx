@@ -124,6 +124,8 @@ export default function Profile() {
 				Street: {data?.street}<br />
 				House: {data?.house}<br />
 				Apartment: {data?.apartment}<br />
+				School: {data?.school}<br />
+				Work Place: {data?.workplace}<br/>
 				Phone: {data?.phone}<br />
 				{!View_only ? (
 					<Form action='edit'>

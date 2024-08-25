@@ -32,7 +32,7 @@ async function delete_card(data) {
 
 export default function Idea_card({ obj, isProfile }) {
 	const navigate = useNavigate()
-	console.log(obj, isProfile)
+	//console.log(obj, isProfile)
 	return (
 		<div className='grid-item'>
 			<CardActionArea onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
@@ -78,20 +78,21 @@ export default function Idea_card({ obj, isProfile }) {
 							{obj.data.author}
 						</Link>
 					</div>
+				</Card>
+			</CardActionArea>
 					{isProfile ? (
 						<button
 							class='del'
 							onClick={() => {
 								delete_card(obj)
 							}}
+							style={{width: '100%'}}
 						>
 							УДАЛИТЬ
 						</button>
 					) : (
 						<></>
 					)}
-				</Card>
-			</CardActionArea>
 		</div>
 	)
 }
