@@ -1,0 +1,12 @@
+.box {
+    margin: 50px
+}
+
+.title_page {
+    text-align: center;
+}
+
+.text_page {
+    font-size: larger;
+    white-space: pre;
+}

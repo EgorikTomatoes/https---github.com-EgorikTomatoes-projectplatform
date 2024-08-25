@@ -37,35 +37,35 @@ export default function Idea_card({ obj, isProfile }) {
 		<div className='grid-item'>
 			<CardActionArea onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
 				<Card
-					style={{ border: '2px solid black', height: '350px' }}
+					style={{ border: '2px solid black', height: '400px' }}
 					className='grid-item'
 				>
-					<CardContent>
+					<CardContent onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
 						<CardMedia>
 							<Avatar alt='Remy Sharp' src={obj.data.avatar} />
 						</CardMedia>
 						<h1 className='title'>
 							{obj?.data?.title?.length < 40 ? obj?.data?.title : obj?.data?.title?.slice(0, 40) + '...'}
 						</h1>
-						{obj?.data?.text?.length < 300
-							? obj?.data?.text
-							: obj?.data?.text.slice(0, 300) + '...'}
-						<br />
-					</CardContent>
-					{isProfile ? (
-						<div>
-							Статус {obj?.data?.status}
-							<br />
-							{obj?.data?.status === 'declined' ? (
-								<span>Причина: {obj?.data?.reason}</span>
-							) : (
-								<></>
-							)}
+						<div className='text'>
+							{obj?.data?.text?.length < 100
+								? obj?.data?.text
+								: obj?.data?.text.slice(0, 100) + '...'}
 						</div>
-					) : (
-						<></>
-					)}
-					<CardContent>
+						{isProfile ? (
+							<div>
+								Статус {obj?.data?.status}
+								<br />
+								{obj?.data?.status === 'declined' ? (
+									<span>Причина: {obj?.data?.reason}</span>
+								) : (
+									<></>
+								)}
+							</div>
+						) : (
+							<></>
+						)}
+						<br />
 						<div>
 							Тэги:{' '}
 							{obj?.data?.subjects?.map(doc => {

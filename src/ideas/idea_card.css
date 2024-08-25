@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.text {
+    font-size: medium;
+    white-space: pre;
+}
+
 .email {
     text-transform: none;
     text-decoration: none;

@@ -29,7 +29,7 @@ import {
 	where,
 	getDocs,
 } from 'firebase/firestore'
-
+import './idea_page.css'
 
 
 
@@ -47,15 +47,25 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 export async function loader({ params }) {
-    const docRef = doc(db, 'ideas', params?.Idea_name)
+	const docRef = doc(db, 'ideas', params?.Idea_name)
 	const docSnap = await getDoc(docRef)
-    const res = { data: docSnap.data() }
-    return res;
+	const res = { data: docSnap.data() }
+	return res;
 }
 
 
-export default function Idea_page(){
-    let {data} = useLoaderData()
-    //console.log(data)
-    return (<div><h1>{data.title}</h1><br/>{data.text}</div>)
+export default function Idea_page() {
+	let { data } = useLoaderData()
+	return (
+		<div className='box'>
+			<h1 className='title_page'>{data.title}</h1>
+			<br />
+			<div className='text_page'>{data.text}</div>
+			<br />
+			<Avatar src={data.avatar} />
+			<Link className='email' to={`/profile/${data.author}`}>
+				{data.author}
+			</Link>
+		</div>
+	)
 }
