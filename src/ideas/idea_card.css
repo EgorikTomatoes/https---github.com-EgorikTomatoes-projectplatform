@@ -1,10 +1,13 @@
 .title {
     text-align: center;
+    white-space: pre-wrap;
 }
 
 .text {
     font-size: medium;
-    white-space: pre;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: hidden;
 }
 
 .email {

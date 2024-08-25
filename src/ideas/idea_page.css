@@ -1,12 +1,15 @@
 .box {
-    margin: 50px
+    margin: 50px;
 }
 
 .title_page {
     text-align: center;
+    white-space: pre-wrap;
 }
 
 .text_page {
     font-size: larger;
-    white-space: pre;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: hidden;
 }
