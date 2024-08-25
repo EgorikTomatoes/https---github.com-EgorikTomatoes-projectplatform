@@ -25,10 +25,10 @@ import { action as IdeaAction } from './ideas/create_idea'
 
 import Main_Bar from './components/bar'
 import Moderation from './ideas/moderate_ideas'
-import { loader as ModerationLoader} from './ideas/moderate_ideas'
+import { loader as ModerationLoader } from './ideas/moderate_ideas'
 import { action as ModerationAction } from './ideas/moderate_ideas'
-import Idea_page from './components/idea_page'
-import { loader as Idea_page_loader } from './components/idea_page'
+import Idea_page from './ideas/idea_page'
+import { loader as Idea_page_loader } from './ideas/idea_page'
 
 const router = createBrowserRouter([
 	{

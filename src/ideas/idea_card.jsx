@@ -35,9 +35,9 @@ export default function Idea_card({ obj, isProfile }) {
 	console.log(obj, isProfile)
 	return (
 		<div className='grid-item'>
-			<CardActionArea onClick={()=>{navigate(`/idea/${obj?.data?.title}`)}}>
+			<CardActionArea onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
 				<Card
-					style={{ border: '2px solid black', height: '600px' }}
+					style={{ border: '2px solid black', height: '350px' }}
 					className='grid-item'
 				>
 					<CardContent>

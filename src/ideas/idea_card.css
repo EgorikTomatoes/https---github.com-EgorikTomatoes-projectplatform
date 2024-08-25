@@ -13,13 +13,13 @@
     gap: 10px;
 }
 
-.grid-item div{
+.grid-item div {
     background-color: #50b3de;
-    border-radius: 10px !important;
+    border-radius: 15px;
 }
 
 .del {
     background-color: red;
-    color:white;
+    color: white;
     font-weight: bold;
 }
