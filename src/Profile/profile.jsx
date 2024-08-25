@@ -134,25 +134,25 @@ export default function Profile() {
 				)}
 				{!View_only ? (
 					<div className='abvg'>
-					<LogoutButton
-						theme={{
-							colors: {
-								light: '#ffffff',
-								dark: '#5e72e4',
-								accent: '#13a0ff',
-								lightBackground: '#fdfdfd',
-								darkBackground: '#2d2d2d',
-							},
-							colorScheme: 'auto',
-							fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
-							size: 'compact',
-							extras: {
-								rounded: true,
-								gradientButtons: true,
-								hideSecuredMessage: true,
-							},
-						}}
-					/></div>
+						<LogoutButton
+							theme={{
+								colors: {
+									light: '#ffffff',
+									dark: '#5e72e4',
+									accent: '#13a0ff',
+									lightBackground: '#fdfdfd',
+									darkBackground: '#2d2d2d',
+								},
+								colorScheme: 'auto',
+								fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
+								size: 'compact',
+								extras: {
+									rounded: true,
+									gradientButtons: true,
+									hideSecuredMessage: true,
+								},
+							}}
+						/></div>
 				) : (
 					<></>
 				)}
@@ -161,13 +161,15 @@ export default function Profile() {
 			<div className='createidea'>
 				{!View_only ? <a class='create_idea'><Link className='createidea' to='/create/idea'>Создать идею</Link></a> : <></>}
 			</div>
-			{projects !== undefined ? (
-				projects.map(doc => {
-					return <Idea_card obj={doc} isProfile={!View_only} />
-				})
-			) : (
-				<div className='positions'>Нет проектов</div>
-			)}
+			<div class='grid-container'>
+				{projects !== undefined ? (
+					projects.map(doc => {
+						return <Idea_card obj={doc} isProfile={!View_only} />
+					})
+				) : (
+					<div className='positions'>Нет проектов</div>
+				)}
+			</div>
 		</RequireAuth>
 	)
 }
