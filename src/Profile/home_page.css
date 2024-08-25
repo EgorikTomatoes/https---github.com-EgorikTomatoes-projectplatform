@@ -49,15 +49,15 @@
 
 .samples-container {
 	display: flex;
-	background-color: #DAA520;
+	background-color: #ffa500;
 	flex-direction: row;
 	justify-content: space-around;
+	padding-bottom: 40px;
 }
 
 .description{
-	padding: 40px;
 	height: 300px;
-	width: 400px;
+	width: 100vw;
 	display: flex;
 	direction: column;
 	border: 1px solid black;

@@ -9,10 +9,17 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 10px;
 }
 
 .grid-item {
     background-color: #f0f0f0;
+    border-radius: 10px !important;
+}
+
+.del {
+    background-color: red;
+    color:white;
+    font-weight: bold;
 }

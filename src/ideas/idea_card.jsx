@@ -35,7 +35,7 @@ export default function Idea_card({ obj, isProfile }) {
 	return (
 		<div className='grid-item'>
 			<CardActionArea>
-				<Card style={{ border: '1px solid black', height: '350px' }}>
+				<Card style={{ border: '2px solid black', height: '600px'}} className='grid-item'>
 					<CardContent>
 						<h1 className='title'>{obj?.id}</h1>
 						<br />
@@ -54,7 +54,7 @@ export default function Idea_card({ obj, isProfile }) {
 					</div>
 					<div>Тэги: {obj?.data?.subjects?.map((doc) => { return <>{doc}; </> })}</div>
 					<br />
-					{isProfile? <button onClick={()=>{delete_card(obj)}}>УДАЛИТЬ</button>:<></>}
+					{isProfile? <button class='del' onClick={()=>{delete_card(obj)}}>УДАЛИТЬ</button>:<></>}
 				</Card>
 			</CardActionArea>
 		</div>

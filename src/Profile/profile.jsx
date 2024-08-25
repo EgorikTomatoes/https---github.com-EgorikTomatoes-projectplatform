@@ -133,6 +133,7 @@ export default function Profile() {
 					<></>
 				)}
 				{!View_only ? (
+					<div className='abvg'>
 					<LogoutButton
 						theme={{
 							colors: {
@@ -151,7 +152,7 @@ export default function Profile() {
 								hideSecuredMessage: true,
 							},
 						}}
-					/>
+					/></div>
 				) : (
 					<></>
 				)}
