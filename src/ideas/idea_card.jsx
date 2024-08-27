@@ -40,7 +40,7 @@ export default function Idea_card({ obj, isProfile }) {
 					style={{ border: '2px solid black', height: '400px' }}
 					className='grid-item'
 				>
-					<CardContent onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
+					<CardContent>
 						<CardMedia>
 							<Avatar alt='Remy Sharp' src={obj.data.avatar} />
 						</CardMedia>
@@ -80,19 +80,19 @@ export default function Idea_card({ obj, isProfile }) {
 					</div>
 				</Card>
 			</CardActionArea>
-					{isProfile ? (
-						<button
-							class='del'
-							onClick={() => {
-								delete_card(obj)
-							}}
-							style={{width: '100%'}}
-						>
-							УДАЛИТЬ
-						</button>
-					) : (
-						<></>
-					)}
+			{isProfile ? (
+				<button
+					class='del'
+					onClick={() => {
+						delete_card(obj)
+					}}
+					style={{ width: '100%' }}
+				>
+					УДАЛИТЬ
+				</button>
+			) : (
+				<></>
+			)}
 		</div>
 	)
 }
