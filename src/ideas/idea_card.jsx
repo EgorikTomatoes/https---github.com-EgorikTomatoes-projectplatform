@@ -80,19 +80,19 @@ export default function Idea_card({ obj, isProfile }) {
 					</div>
 				</Card>
 			</CardActionArea>
-					{isProfile ? (
-						<button
-							class='del'
-							onClick={() => {
-								delete_card(obj)
-							}}
-							style={{width: '100%'}}
-						>
-							УДАЛИТЬ
-						</button>
-					) : (
-						<></>
-					)}
+			{isProfile ? (
+				<button
+					class='del'
+					onClick={() => {
+						delete_card(obj)
+					}}
+					style={{ width: '100%' }}
+				>
+					УДАЛИТЬ
+				</button>
+			) : (
+				<></>
+			)}
 		</div>
 	)
 }
