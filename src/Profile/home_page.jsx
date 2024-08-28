@@ -49,24 +49,6 @@ function App() {
 						isProfile={false}
 					/>
 				</div>
-				<div className='sample'>
-					<Idea_card
-						obj={{
-							data: {
-								author: 'bcd@gmail.com',
-								avatar: 'https://def4onki.ru/wp-content/uploads/2021/09/jy.jpg',
-								reason: '',
-								status: 'accepted',
-								subjects: [
-									'Основы духовно-нравственных культур народов россии',
-								],
-								text: 'Это что, НОВЫЙ ДИЗАЙН???',
-								title: 'Новая идея Игорика',
-							},
-						}}
-						isProfile={false}
-					/>
-				</div>
 			</div>
             <h4>
                 Зарегистрируйся прямо сейчас!

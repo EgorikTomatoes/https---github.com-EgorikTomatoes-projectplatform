@@ -50,36 +50,36 @@ export default function Profile_edit() {
 		<Form method='post'>
 			<div className='positions'>
 				<div>
-					Image url:{' '}
+					Ссылка на аватарку:{' '}
 					<input name='image' type='text' defaultValue={data.image} />
 					<br />
-					First name: <input name='name' type='text' defaultValue={data.name} />
+					Имя: <input name='name' type='text' defaultValue={data.name} />
 					<br />
-					Second name{' '}
+					Фамилия{' '}
 					<input name='surname' type='text' defaultValue={data.surname} />
 					<br />
 					Email:{data.email}
 					<br />
-					Age: <input name='age' type='text' defaultValue={data.age} />
+					Возраст: <input name='age' type='text' defaultValue={data.age} />
 					<br />
-					Country:{' '}
+					Страна:{' '}
 					<input name='country' type='text' defaultValue={data.country} />
 					<br />
-					City: <input name='city' type='text' defaultValue={data.city} />
+					Город: <input name='city' type='text' defaultValue={data.city} />
 					<br />
-					Street: <input name='street' type='text' defaultValue={data.street} />
+					Улица: <input name='street' type='text' defaultValue={data.street} />
 					<br />
-					House: <input name='house' type='text' defaultValue={data.house} />
+					Дом: <input name='house' type='text' defaultValue={data.house} />
 					<br />
-					Apartment:{' '}
+					Квартира:{' '}
 					<input name='apartment' type='text' defaultValue={data.apartment} />
 					<br />
+					Школа: <input name='school' type='text' defaultValue={data.school} />
 					<br />
-					School: <input name='school' type='text' defaultValue={data.school} />
-					<br />
-					Work Place:{' '}
+					Место работы:{' '}
 					<input name='workplace' type='text' defaultValue={data.workplace} />
-					Phone: <input name='phone' type='text' defaultValue={data.phone} />
+					<br />
+					Телефон: <input name='phone' type='text' defaultValue={data.phone} />
 				</div>
 				<div>
 					<button type='submit' className='edit'>

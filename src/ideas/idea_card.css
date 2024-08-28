@@ -8,6 +8,7 @@
     overflow-wrap: break-word;
     white-space: pre-wrap;
     overflow: hidden;
+    border-radius: 0px !important;
 }
 
 .email {

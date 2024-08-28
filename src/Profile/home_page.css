@@ -15,7 +15,8 @@
 
 .text-container h1 {
 	margin: 0;
-	font-size: 150px;
+	font-size: 10vw;
+	display: grid;
 	color: rgba(225, 225, 225, 0.01);
 	background-image: url('../images/bg3.png');
 	background-size: cover;

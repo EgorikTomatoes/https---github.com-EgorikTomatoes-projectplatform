@@ -33,6 +33,7 @@ import {
 import { Subjects } from './subjects'
 import './create_idea.css'
 
+
 const firebaseConfig = {
 	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
 	authDomain: 'projectsplatform-f3e9c.firebaseapp.com',

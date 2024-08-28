@@ -35,6 +35,7 @@ import {
 } from 'firebase/firestore'
 
 import Update_card from './update_card'
+import './moderate_ideas.css'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
@@ -79,12 +80,14 @@ export default function Moderation() {
 	const projects = useLoaderData()
 	return (
 		<RequireAuth>
-			<div>
+			<div className='grid-container'>
 				{projects !== undefined ? (
 					projects.map(doc => {
 						return (
-							<div>
-								<Idea_card obj={doc} />
+							<div className='wrapper'>
+								<div className='grid-container'>
+									<Idea_card obj={doc} />
+								</div>
 								<Update_card obj={doc} />
 							</div>
 						)

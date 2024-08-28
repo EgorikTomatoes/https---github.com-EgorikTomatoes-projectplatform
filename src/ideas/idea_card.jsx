@@ -40,7 +40,7 @@ export default function Idea_card({ obj, isProfile }) {
 					style={{ border: '2px solid black', height: '400px' }}
 					className='grid-item'
 				>
-					<CardContent onClick={() => { navigate(`/idea/${obj?.data?.title}`) }}>
+					<CardContent>
 						<CardMedia>
 							<Avatar alt='Remy Sharp' src={obj.data.avatar} />
 						</CardMedia>
@@ -67,10 +67,10 @@ export default function Idea_card({ obj, isProfile }) {
 						)}
 						<br />
 						<div>
-							Тэги:{' '}
+							<strong>Тэги:{' '}
 							{obj?.data?.subjects?.map(doc => {
-								return <>{doc}; </>
-							})}
+								return <>{doc} </>
+							})}</strong>
 						</div>
 					</CardContent>
 					<div style={{ display: 'flex', direction: 'row' }}>

@@ -30,6 +30,8 @@ import {
 	getDocs,
 } from 'firebase/firestore'
 
+import "./idea_card.css"
+
 const firebaseConfig = {
 	apiKey: 'AIzaSyBDEOURuUOoK_KjI4uLi6DmYOq4JVDRRwM',
 	authDomain: 'projectsplatform-f3e9c.firebaseapp.com',
@@ -55,9 +57,9 @@ export async function action({ request, res }) {
 
 export default function Update_card({ obj }) {
 	return (
-		<div style={{ border: '3px solid black', background:'white'}}>
+		<div style={{ border: '3px solid black', background: 'white', width:"100%"}}>
 			<Form method='post'>
-				<input type='radio' id='accepted' name='status' value='accepted'/>
+				<input type='radio' id='accepted' name='status' value='accepted' />
 				<label for='accepted'>Принять проект</label>
 				<br />
 				<input type='radio' id='declined' name='status' value='declined' />
@@ -65,13 +67,15 @@ export default function Update_card({ obj }) {
 				<br />
 				<textarea
 					name='reason'
-					cols='80'
+					cols='40'
 					rows='8'
 					placeholder='Причина отклонения'
 				/>
 				<br />
-				<button type='submit'>Принять</button>
-				<input type="hidden" name='name' value={obj.data.title} />
+				<button type='submit' style={{ width: '100%' }}>
+					Принять
+				</button>
+				<input type='hidden' name='name' value={obj.data.title} />
 			</Form>
 		</div>
 	)
