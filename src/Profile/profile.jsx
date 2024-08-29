@@ -109,24 +109,25 @@ export default function Profile() {
 	if (!View_only) {
 		data.email = Userfront?.user?.email
 	}
+	console.log(data)
 	return (
 		<RequireAuth>
 			<div className='positions'>
 				<div>
-					<img key={data?.image} src={data?.image} alt='Фото пользователя' />
+					<img key={data?.image} src={data?.image} width={'17%'} height={"1%"} alt='Фото пользователя' />
 				</div>
-				Имя: {data?.name !== undefined ? data.name : "-"}<br />
-				Фамилия: {data?.surname !== undefined ? data.surname: "-"}<br />
-				Email: {data?.email !== undefined ? data.email: "-"}<br />
-				Возраст: {data?.age !== undefined ? data.age: "-"}<br />
-				Страна: {data?.country !== undefined ? data.country: "-"}<br />
-				Город: {data?.city !== undefined ? data.city: "-"}<br />
-				Улица: {data?.street !== undefined ? data.street: "-"}<br />
-				Дом: {data?.house !== undefined ? data.house: "-"}<br />
-				Квартира: {data?.apartment !== undefined ? data.apartment: "-"}<br />
-				Школа: {data?.school !== undefined ? data.school: "-"}<br />
-				Место работы: {data?.workplace !== undefined ? data.workplace: "-"}<br/>
-				Телефон: {data?.phone !== undefined ? data.phone: "-"}<br />
+				Имя: {data?.name !== undefined && data?.name !== "" ? data.name : "-"}<br />
+				Фамилия: {data?.surname !== undefined && data?.surname !== "" ? data.surname: "-"}<br />
+				Email: {data?.email !== undefined && data?.email !== "" ? data.email: "-"}<br />
+				Возраст: {data?.age !== undefined && data?.age !== "" ? data.age: "-"}<br />
+				Страна: {data?.country !== undefined && data?.country !== "" ? data.country: "-"}<br />
+				Город: {data?.city !== undefined && data?.city !== "" ? data.city: "-"}<br />
+				Улица: {data?.street !== undefined && data?.street !== "" ? data.street: "-"}<br />
+				Дом: {data?.house !== undefined && data?.house !== "" ? data.house: "-"}<br />
+				Квартира: {data?.apartment !== undefined  && data?.apartment !== ""? data.apartment: "-"}<br />
+				Школа: {data?.school !== undefined && data?.school !== "" ? data.school: "-"}<br />
+				Место работы: {data?.workplace !== undefined && data?.workplace !== "" ? data.workplace: "-"}<br/>
+				Телефон: {data?.phone !== undefined  && data?.phone !== "" ? data.phone: "-"}<br />
 				{!View_only ? (
 					<Form action='edit'>
 						<button className='edit'>EDIT</button>

@@ -54,9 +54,10 @@
 	flex-direction: row;
 	justify-content: space-around;
 	padding-bottom: 40px;
+	overflow:scroll;
 }
 
-.description{
+.description {
 	height: 300px;
 	width: 100vw;
 	display: flex;
@@ -67,4 +68,10 @@
 	font-weight: 400;
 	font-style: italic;
 	font-size: 60px;
+}
+.low {
+	background-color: #AFEEEE;
+	margin: 0%;
+	text-align: center;
+	padding: 10px;
 }
